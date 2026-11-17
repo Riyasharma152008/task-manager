@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Task Buddy: a cute task manager for students.">
+<title>Task Buddy ♡</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div>
+    <h1>Task <span>Buddy</span> ♡</h1>
+    <p id="greeting">Let's make today feel doable.</p>
+  </div>
+  <div class="blob" aria-live="polite">
+    <div><strong id="remaining">0</strong><small>left</small></div>
+  </div>
+</header>
+
+<main>
+  <section class="card" aria-labelledby="add-heading">
+    <h2 id="add-heading">Add a task</h2>
+    <form id="form" class="form-grid" autocomplete="off">
+      <div class="field full">
+        <label for="title">Task title</label>
+        <input id="title" maxlength="120" required placeholder="e.g. Finish HTML assignment">
+      </div>
+      <div class="field">
+        <label for="category">Category</label>
+        <select id="category">
+          <option value="study">📚 Study</option>
+          <option value="project">💻 Project</option>
+          <option value="life">🌷 Life</option>
+          <option value="fun">🎀 Fun</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="priority">Priority</label>
+        <select id="priority">
+          <option value="low">Chill</option>
+          <option value="med" selected>Soon</option>
+          <option value="high">Urgent!</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="due">Due date</label>
+        <input id="due" type="date">
+      </div>
+      <button class="btn" type="submit">Add task ✿</button>
+    </form>
+  </section>
+
+  <section aria-labelledby="list-heading">
+    <div class="list-head">
+      <h2 id="list-heading">Your tasks</h2>
+      <nav aria-label="Filter tasks">
+        <div class="filters">
+          <button class="chip" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" data-filter="active" aria-pressed="false">To do</button>
+          <button class="chip" data-filter="done" aria-pressed="false">Done</button>
+          <button class="chip" data-filter="study" aria-pressed="false">📚 Study</button>
+          <button class="chip" data-filter="project" aria-pressed="false">💻 Project</button>
+        </div>
+      </nav>
+    </div>
+    <ul class="board" id="board"></ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span id="stats"></span>
+  <button id="clear" type="button">Clear finished</button>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
